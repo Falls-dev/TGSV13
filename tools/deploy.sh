@@ -40,6 +40,8 @@ cp -r tgui/packages/tgfont/dist/* $1/tgui/packages/tgfont/dist/
 #this regrettably doesn't work with windows find
 #find $1/_maps -name "*.dm" -type f -delete
 
-#dlls on windows
+# Native libs (Windows DLLs + Linux .so from PreCompile)
 cp rust_g* $1/ || true
-cp auxtools/*auxmos.* $1/auxtools/ || true
+cp librust_g* $1/ || true
+cp *auxmos* $1/ || true
+cp auxtools/*auxmos* $1/auxtools/ || true
