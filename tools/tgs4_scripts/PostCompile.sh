@@ -68,9 +68,9 @@ fi
 
 echo "Deploying rust-g..."
 cd rust-g
-git checkout $RUST_G_VERSION
-~/.cargo/bin/cargo build --release
-mv target/release/librust_g.so $1/rust_g
+git checkout "$RUST_G_VERSION"
+env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo build --release --ignore-rust-version --target=i686-unknown-linux-gnu
+cp -f target/i686-unknown-linux-gnu/release/librust_g.so "$1/librust_g.so"
 cd ..
 
 echo "Deploying BSQL..."
