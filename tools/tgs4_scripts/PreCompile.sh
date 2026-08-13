@@ -46,7 +46,8 @@ if ! ( [ -x "$has_git" ] && [ -x "$has_grep" ] && [ -f "/usr/lib/i386-linux-gnu/
 fi
 dpkg --add-architecture i386
 apt-get update
-apt-get install -y lib32z1 pkg-config libssl-dev:i386 libssl-dev libssl1.1:i386
+# Bookworm+ has OpenSSL 3 (libssl3); do not require obsolete libssl1.1
+apt-get install -y lib32z1 pkg-config libssl-dev:i386 libssl-dev
 # update rust-g
 if [ ! -d "rust-g" ]; then
 	echo "Cloning rust-g..."
@@ -76,21 +77,21 @@ if [ ! -d "auxmos" ]; then
 	# NSV13 - fork
 	git clone https://github.com/covertcorvid/auxmos
 	cd auxmos
+	~/.cargo/bin/rustup target add i686-unknown-linux-gnu
 else
 	echo "Fetching Auxmos..."
 	cd auxmos
 	git fetch
+	~/.cargo/bin/rustup target add i686-unknown-linux-gnu
 fi
 
 echo "Deploying Auxmos..."
-git checkout "$AUXMOS_VERSION"
-if [ -d "build" ]; then
-	rm -R build
-fi
+# Tags are named vX.Y.Z-*; AUXMOS_VERSION stores the name without the leading v
+git checkout "v${AUXMOS_VERSION}"
 # NSV13 - changed to katmos
-cargo rustc --target=i686-unknown-linux-gnu --release --features katmos -- -C target-cpu=native
-mv -f target/i686-unknown-linux-gnu/release/libauxmos.so "$1/libauxmos.so"
-cd ../../..
+env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo rustc --release --ignore-rust-version --target=i686-unknown-linux-gnu --features katmos -- -C target-cpu=native
+cp -f target/i686-unknown-linux-gnu/release/libauxmos.so "$1/libauxmos.so"
+cd ..
 
 # install or update youtube-dl when not present, or if it is present with pip3,
 # which we assume was used to install it
@@ -101,10 +102,10 @@ if ! [ -x "$has_youtubedl" ]; then
 	else
 		sudo apt-get install -y python3 python3-pip
 	fi
-	pip3 install youtube-dl
+	pip3 install --break-system-packages youtube-dl
 elif [ -x "$has_pip3" ]; then
 	echo "Ensuring youtube-dl is up-to-date with pip3..."
-	pip3 install youtube-dl -U
+	pip3 install --break-system-packages youtube-dl -U
 fi
 
 # compile tgui

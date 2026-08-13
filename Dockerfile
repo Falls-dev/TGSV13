@@ -33,7 +33,7 @@ FROM rust-build as auxmos
 RUN git init \
     && git remote add origin https://github.com/covertcorvid/auxmos \
     && /bin/bash -c "source dependencies.sh \
-    && git fetch --depth 1 origin \$AUXMOS_VERSION" \
+    && git fetch --depth 1 origin v\$AUXMOS_VERSION" \
     && git checkout FETCH_HEAD \
     && cargo rustc --target=i686-unknown-linux-gnu --release --features=katmos
 
