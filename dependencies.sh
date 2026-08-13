@@ -4,21 +4,21 @@
 #Final authority on what's required to fully build the project
 
 # byond version
-export BYOND_MAJOR=515
-export BYOND_MINOR=1633
+export BYOND_MAJOR=516
+export BYOND_MINOR=1685
 
 #rust version
 export RUST_VERSION=1.70
 
 #rust_g git tag
-export RUST_G_VERSION=3.1.3
+export RUST_G_VERSION=6.2.0
 
 #node version
 export NODE_VERSION=18
 export NODE_VERSION_PRECISE=18.14.2
 
 # SpacemanDMM git tag
-export SPACEMAN_DMM_VERSION=suite-1.8
+export SPACEMAN_DMM_VERSION=suite-1.11
 
 #auxmos version
 export AUXMOS_VERSION=2.5.2-b
