@@ -45,6 +45,11 @@ type ByondType = {
   TRIDENT: number | null;
 
   /**
+   * Version of Blink engine of WebView2. Null if N/A.
+   */
+  BLINK: number | null;
+
+  /**
    * True if browser is IE8 or lower.
    */
   IS_LTE_IE8: boolean;
@@ -123,7 +128,7 @@ type ByondType = {
    *
    * Returns a promise with the value of that property.
    */
-  winget(id: string | null, propNames: string[]): Promise<object>;
+  winget(id: string | null, propName: string): Promise<any>;
 
   /**
    * Retrieves multiple properties of the BYOND skin element,
@@ -131,7 +136,7 @@ type ByondType = {
    *
    * Returns a promise with a key-value object containing listed properties.
    */
-  winget(id: string, propNames: string[]): Promise<object>;
+  winget(id: string | null, propNames: string[]): Promise<object>;
 
   /**
    * Assigns properties to BYOND skin elements in bulk.
@@ -181,6 +186,11 @@ type ByondType = {
    * Loads a script into the document.
    */
   loadJs(url: string): void;
+
+  /**
+   * Downloads a blob, platform-agnostic
+   */
+  saveBlob(blob: Blob, filename: string, ext: string): void;
 };
 
 /**
@@ -191,4 +201,15 @@ const Byond: ByondType;
 
 interface Window {
   Byond: ByondType;
+  __store__: Store<unknown, AnyAction>;
+  __augmentStack__: (store: Store) => StackAugmentor;
+
+  // IE IndexedDB stuff.
+  msIndexedDB: IDBFactory;
+  msIDBTransaction: IDBTransaction;
+
+  // 516 byondstorage API.
+  hubStorage: Storage;
+  domainStorage: Storage;
+  serverStorage: Storage;
 }
