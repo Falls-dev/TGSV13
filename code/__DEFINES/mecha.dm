@@ -7,9 +7,10 @@
 #define MECHA_MELEE (1 << 0)
 #define MECHA_RANGED (1 << 1)
 
-#define MECHA_FRONT_ARMOUR 1
-#define MECHA_SIDE_ARMOUR 2
-#define MECHA_BACK_ARMOUR 3
+// String keys: BYOND 516 forbids numeric keys in list() (use alist() or strings)
+#define MECHA_FRONT_ARMOUR "mechafront"
+#define MECHA_SIDE_ARMOUR "mechaside"
+#define MECHA_BACK_ARMOUR "mechaback"
 
 #define MECHA_LOCKED 0
 #define MECHA_SECURE_BOLTS 1

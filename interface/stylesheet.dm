@@ -122,8 +122,8 @@ h1.alert, h2.alert		{color: #000000;}
 .large_brass			{color: #BE8700; font-size: 3;}
 .leader_brass			{color: #BE8700; font-size: 16px;}
 .big_brass				{color: #BE8700; font-size: 3; font-weight: bold; font-style: italic;}
-.ratvar					{color: #BE8700; font-size: 6; font-weight: bold; font-style: italic; animation: ratvarcolor 5000ms infinite;}
-.ratvarsmall			{color: #BE8700; font-size: 3; font-weight: bold; font-style: italic; animation: ratvarcolor 5000ms infinite;}
+.ratvar					{color: #BE8700; font-size: 6; font-weight: bold; font-style: italic; animation: ratvarcolor 5s infinite;}
+.ratvarsmall			{color: #BE8700; font-size: 3; font-weight: bold; font-style: italic; animation: ratvarcolor 5s infinite;}
 .alloy					{color: #42474D;}
 .heavy_alloy			{color: #42474D; font-weight: bold; font-style: italic;}
 .nezbere_large			{color: #42474D; font-size: 3; font-weight: bold; font-style: italic;}
@@ -187,7 +187,7 @@ h1.alert, h2.alert		{color: #000000;}
 .clown					{color: #FF69Bf;	font-size: 3; font-family: "Comic Sans MS", cursive, sans-serif; font-weight: bold;}
 .singing				{font-family: "Trebuchet MS", cursive, sans-serif; font-style: italic;}
 .his_grace				{color: #15D512;	font-family: "Courier New", cursive, sans-serif; font-style: italic;}
-.hypnophrase			{color: #3bb5d3;	font-weight: bold; animation: hypnocolor 1500ms infinite;}
+.hypnophrase			{color: #3bb5d3;	font-weight: bold; animation: hypnocolor 1.5s infinite;}
 @keyframes hypnocolor {
     0% { color: #0d0d0d; }
     25% { color: #410194; }
@@ -196,7 +196,7 @@ h1.alert, h2.alert		{color: #000000;}
 	100% { color: #3bb5d3; }
 }
 
-.phobia			{color: #dd0000;	font-weight: bold; animation: phobia 750ms infinite;}
+.phobia			{color: #dd0000;	font-weight: bold; animation: phobia 0.75s infinite;}
 	@keyframes phobia {
 		0% { color: #0d0d0d; }
 		50% { color: #dd0000; }

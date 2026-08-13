@@ -2,8 +2,8 @@
 
 GLOBAL_LIST_EMPTY(all_huds)
 
-//GLOBAL HUD LIST
-GLOBAL_LIST_INIT(huds, list(
+//GLOBAL HUD LIST (alist: HUD ids are numeric keys; list() forbids that on 516+)
+GLOBAL_ALIST_INIT(huds, alist(
 	DATA_HUD_SECURITY_BASIC = new/datum/atom_hud/data/human/security/basic(),
 	DATA_HUD_SECURITY_ADVANCED = new/datum/atom_hud/data/human/security/advanced(),
 	DATA_HUD_MEDICAL_BASIC = new/datum/atom_hud/data/human/medical/basic(),
@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT(huds, list(
 	ANTAG_HUD_SURVIVALIST = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_INCURSION = new/datum/atom_hud/antag(),
 	ANTAG_HUD_HERETIC = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_BLOODING = new/datum/atom_hud/antag(), //NSV13 bloodling
+	ANTAG_HUD_BLOODLING = new/datum/atom_hud/antag(), //NSV13 bloodling
 	DATA_HUD_SQUAD = new/datum/atom_hud/data/human/squad_hud() //NSV13 squad
 	))
 
