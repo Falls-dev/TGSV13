@@ -112,4 +112,7 @@ fi
 echo "Compiling tgui..."
 cd "$1"
 chmod +x tools/bootstrap/node  # Workaround for https://github.com/tgstation/tgstation-server/issues/1167
+# Vendored Node lives under TG_BOOTSTRAP_CACHE; put it on PATH so yarn/child
+# processes can resolve `node` (bootstrap itself does not export PATH).
+export PATH="$original_dir/node-v${NODE_VERSION_PRECISE}-linux-x64/bin:$PATH"
 env TG_BOOTSTRAP_CACHE="$original_dir" TG_BOOTSTRAP_NODE_LINUX=1 CBT_BUILD_MODE="TGS" tools/bootstrap/node tools/build/build.js
