@@ -67,7 +67,7 @@
 #if !defined(SPACEMAN_DMM) && (DM_VERSION < MIN_COMPILER_VERSION || DM_BUILD < MIN_COMPILER_BUILD) && !defined(FASTDMM)
 //Don't forget to update this part
 #error Your version of BYOND is too out-of-date to compile this project. Go to https://secure.byond.com/download and update.
-#error You need version 515.1633 or higher.
+#error You need version 516.1659 or higher.
 #endif
 //NSV - Donator Items
 // Enable personal donator items. Disabled by default. Might marginally improve compile performance.
@@ -75,15 +75,13 @@
 //End NSV
 
 //Update this whenever the byond version is stable so people stop updating to hilariously broken versions
-#define MAX_COMPILER_VERSION 515
-#define MAX_COMPILER_BUILD 1700
+#define MAX_COMPILER_VERSION 516
+#define MAX_COMPILER_BUILD 1685
 #if DM_VERSION > MAX_COMPILER_VERSION || DM_BUILD > MAX_COMPILER_BUILD
-#warn WARNING: Your BYOND version is over the recommended version (515.1700)! Stability is not guaranteed.
+#warn WARNING: Your BYOND version is over the recommended version (516.1685)! Stability is not guaranteed.
 #endif
-//Log the full sendmaps profile on 514.1556+, any earlier and we get bugs or it not existing
-#if DM_VERSION >= 514 && DM_BUILD >= 1556
 #define SENDMAPS_PROFILE
-#endif
+
 
 
 //Additional code for the above flags.

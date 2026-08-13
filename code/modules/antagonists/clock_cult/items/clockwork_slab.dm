@@ -25,13 +25,7 @@ GLOBAL_LIST_INIT(clockwork_slabs, list())
 	)
 
 	//Initialise an empty list for quickbinding
-	var/list/quick_bound_scriptures = list(
-		1 = null,
-		2 = null,
-		3 = null,
-		4 = null,
-		5 = null
-	)
+	var/list/quick_bound_scriptures = list(null, null, null, null, null)
 
 	//The default scriptures that get auto-assigned.
 	var/list/default_scriptures = list(

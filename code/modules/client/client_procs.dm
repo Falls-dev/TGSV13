@@ -209,6 +209,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	GLOB.clients += src
 	GLOB.directory[ckey] = src
 
+	// Enable BYOND storage APIs for TGUI on 516+ (WebView2 / hubStorage)
+	if(byond_version >= 516)
+		winset(src, null, list("browser-options" = "find,refresh,byondstorage,devtools"))
+
 	// Instantiate tgui panel
 	tgui_panel = new(src, "browseroutput")
 
